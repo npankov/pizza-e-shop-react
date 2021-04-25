@@ -16,7 +16,9 @@ function SortPopUp({ items }) {
   }
 
   const handleOutsideClick = (e) => {
-    if (!e.path.includes(sortRef.current)) {
+    let path = e.path || (e.composedPath && e.composedPath());
+    // console.log(path);
+    if (!path.includes(sortRef.current)) {
       setVisiblePopUp(false);
       // console.log('click outside PopUp');
     }
@@ -32,6 +34,7 @@ function SortPopUp({ items }) {
     >
       <div className="sort__label">
         <svg
+          className={visiblePopUp ? 'rotated' : ''}
           width="10"
           height="6"
           viewBox="0 0 10 6"
