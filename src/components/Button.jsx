@@ -12,6 +12,6 @@ function Button({ onClick, className, outline, children }) {
       {children}
     </button>
   );
-};
+}
 
 export default Button;
