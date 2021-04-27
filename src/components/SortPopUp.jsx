@@ -68,6 +68,6 @@ function SortPopUp({ items }) {
       </div>}
     </div>
   );
-};
+}
 
 export default SortPopUp;
