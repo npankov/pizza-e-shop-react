@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-function PizzaBlock({ imageUrl, name, price, types, sizes }) {
+function PizzaBlock({ imageUrl, name, price, types, sizes, isLoading }) {
   const availableTypes = ['тонкое', 'традиционное'];
   const availableSizes = [26, 30, 40];
   const [activeTypeName, setActiveTypeName] = useState(types[0]);
