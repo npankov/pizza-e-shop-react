@@ -17,6 +17,8 @@ function Home() {
   const { category, sortBy } = useSelector(({ filters }) => filters);
   const dispatch = useDispatch();
 
+  console.log(category);
+
   useEffect(() => {
       dispatch(fetchPizzas());
   }, [category, dispatch]);

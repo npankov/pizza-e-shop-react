@@ -9,10 +9,6 @@ function PizzaBlock({ imageUrl, name, price, types, sizes, isLoading }) {
   const [activeTypeName, setActiveTypeName] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(sizes[0]);
 
-  if (isLoading) {
-    return <LoadingBlock />
-  }
-
   const onSelectTypeName = (index) => {
     setActiveTypeName(index);
   }
