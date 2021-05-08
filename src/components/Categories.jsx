@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import PizzaBlock from './PizzaBlock';
 
 const Categories = memo(function Categories({ activeCategory, items, onClickCategory }) {
   return (
@@ -24,9 +23,9 @@ const Categories = memo(function Categories({ activeCategory, items, onClickCate
 })
 
 Categories.propTypes = {
-  activeCategory: PropTypes.number.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onClickCategory: PropTypes.func
+  // activeCategory: PropTypes.oneOf([PropTypes.number, null]),
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClickCategory: PropTypes.func.isRequired
 }
 
 Categories.defaultProps = { activeCategory: null, items: [] }
