@@ -1,13 +1,16 @@
 import React from 'react';
 import CartItem from '../components/CartItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../redux/actions/cart';
 
 function Cart() {
   const { totalCount, totalPrice, items } = useSelector(({ cart }) => cart);
   const addedPizzas = Object.keys(items).map((key) => items[key].items[0]);
+  const dispatch = useDispatch();
 
-
-  console.log(addedPizzas);
+  const onClearCart = () => {
+    dispatch(clearCart());
+  }
 
   return (
       <div className="container container--cart">
@@ -27,16 +30,18 @@ function Cart() {
                 <path d="M11.6666 9.16667V14.1667" stroke="#B6B6B6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
 
-              <span>Очистить корзину</span>
+              <span onClick={onClearCart}>Очистить корзину</span>
             </div>
           </div>
           <div className="content__items">
             {
-              addedPizzas.map(({name, type, size}) => <CartItem
-                key={name}
-                name={name}
-                type={type}
-                size={size}
+              addedPizzas.map((obj) => <CartItem
+                key={obj.name}
+                name={obj.name}
+                type={obj.type}
+                size={obj.size}
+                totalPrice={items[obj.id].totalPrice}
+                totalCount={items[obj.id].items.length}
               />)
             }
           </div>
